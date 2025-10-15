@@ -270,3 +270,35 @@ def analyze_bill_ratio_mass_relation(penguins, avg_body_mass_dict, sex_highest_r
     # Return both results so they can be used later or written to a file.
     return bill_mass_relation, sex_match
 
+def write_results(avg_body_mass_dict, sex_highest_ratio, bill_mass_relation):
+    """
+    Write all results into a CSV file
+    """
+    output_file = 'penguins_results.csv'
+    with open(output_file, 'w', newline='') as csvfile:
+        penguin_writer = csv.writer(csvfile)
+
+        penguin_writer.writerow(["Island", "Species", "Average Body Mass (g)"])
+        for (island, species), mass in avg_body_mass_dict.items():
+            penguin_writer.writerow([island, species, f"{mass:.2f}"])
+        penguin_writer.writerow([])
+
+        penguin_writer.writerow(["Species", "Sex with Highest Flipper-to-Mass Ratio"])
+        for species, sex in sex_highest_ratio.items():
+            penguin_writer.writerow([species, sex])
+        penguin_writer.writerow([])
+
+        penguin_writer.writerow(["Island", "Species", "Sex", "Average Bill Ratio"])
+        for key, ratio in bill_mass_relation.items():
+            penguin_writer.writerow([*key, f"{ratio:.2f}"])
+    
+
+def main(): 
+    penguins = load_penguin('penguins.csv')
+    avg_body_mass_dict, heaviest_species_island, highest_avg_mass = calculate_average_body_mass_species(penguins)
+    sex_highest_ratio = calculate_body_flipper_to_mass_ratio(penguins, avg_body_mass_dict)
+    bill_mass_relation, sex_match = analyze_bill_ratio_mass_relation(penguins, avg_body_mass_dict, sex_highest_ratio)
+    write_results(avg_body_mass_dict, sex_highest_ratio, bill_mass_relation)
+
+if __name__ == "__main__": 
+    main() 
