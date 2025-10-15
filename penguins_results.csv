@@ -1,0 +1,26 @@
+Island,Species,Average Body Mass (g)
+Torgersen,Adelie,3706.37
+Biscoe,Adelie,3709.66
+Biscoe,Gentoo,5076.02
+Dream,Adelie,3688.39
+Dream,Chinstrap,3733.09
+
+Species,Sex with Highest Flipper-to-Mass Ratio
+Adelie,male
+Gentoo,male
+Chinstrap,male
+
+Island,Species,Sex,Average Bill Ratio
+Torgersen,Adelie,male,2.13
+Torgersen,Adelie,female,2.16
+Torgersen,Adelie,NA,2.09
+Biscoe,Adelie,female,2.15
+Biscoe,Adelie,male,2.16
+Dream,Adelie,female,2.14
+Dream,Adelie,male,2.15
+Dream,Adelie,NA,2.06
+Biscoe,Gentoo,female,3.28
+Biscoe,Gentoo,male,3.20
+Biscoe,Gentoo,NA,3.24
+Dream,Chinstrap,female,2.71
+Dream,Chinstrap,male,2.70
